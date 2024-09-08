@@ -4,16 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="#304058"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="nothing to tell you"
+        android:src="@drawable/playlist"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="@id/viewStart"
+        app:layout_constraintEnd_toStartOf="@id/nowPlaying"
+        android:id="@+id/playlist"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintTop_toTopOf="@id/topNavGuide" />
+<TextView
+    android:id="@+id/nowPlaying"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:text="Now Playing..."
+    android:textSize="24sp"
+    android:textColor="@color/white"
+    android:fontFamily="sans-serif-medium"
+    app:layout_constraintTop_toTopOf="@id/topNavGuide"
+    app:layout_constraintStart_toEndOf="@id/playlist"
+    app:layout_constraintEnd_toStartOf="@id/search"
+
+    />
+    <ImageButton
+        android:id="@+id/search"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/search"
+        android:background="@null"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toEndOf="@id/nowPlaying"
+        app:layout_constraintEnd_toEndOf="@id/viewEnd"
+        app:layout_constraintTop_toTopOf="@id/topNavGuide"
+
+        />
+
+<androidx.constraintlayout.widget.Guideline
+    android:id="@+id/viewStart"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintGuide_percent="0.06"
+    android:orientation="vertical"/>
+    <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/viewEnd"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintGuide_percent="0.94"
+    android:orientation="vertical"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:id="@+id/topNavGuide"
+        app:layout_constraintGuide_percent="0.05"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
